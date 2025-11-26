@@ -2,6 +2,7 @@ import pygame
 import random
 import time
 import heapq
+import asyncio
 
 #------Window config------
 SCREEN_WIDTH = 720
@@ -201,7 +202,7 @@ class SnakeAI:
 
         pygame.display.flip()
 
-    def run(self):
+    async def run(self):
         running = True
         while running:
             for event in pygame.event.get():
@@ -214,9 +215,11 @@ class SnakeAI:
             self.draw()
             self.clock.tick(FPS)
 
+            await asyncio.sleep(0)
+
         pygame.quit()
 
 
 if __name__ == "__main__":
     game = SnakeAI()
-    game.run()            
+    asyncio.run(game.run())
