@@ -1,2 +1,4 @@
 snake.spec
 build/
+venv/
+dist/
